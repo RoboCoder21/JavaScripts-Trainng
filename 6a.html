@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>time display</title>
+  </head>
+  <body>
+    <h1>Current Time Display</h1>
+    <p id="timeDisplay"></p>
+    <p id="greeting"></p> <!-- This will show the greeting -->
+
+    <script>
+      let name = 'kaleab';
+
+      let hour = new Date().getHours();
+      if (hour >= 6 && hour < 12) {
+        console.log("Good morning! " + name);
+      } else if (hour >= 12 && hour < 17) {
+        console.log("Good afternoon! " + name);
+      } else {
+        console.log("Good night! " + name);
+      }
+      function showGreeting() {
+        const hour = new Date().getHours();
+        let greeting = '';
+        if (hour >= 6 && hour < 12) {
+          greeting = "Good morning! " + name;
+        } else if (hour >= 12 && hour < 17) {
+          greeting = "Good afternoon! " + name;
+        } else {
+          greeting = "Good night! " + name;
+        }
+        document.getElementById('greeting').textContent = greeting;
+      }
+
+      function showCurrentTime() {
+        const now = new Date();
+        const hours = String(now.getHours()).padStart(2, '0');
+        const minutes = String(now.getMinutes()).padStart(2, '0');
+        const seconds = String(now.getSeconds()).padStart(2, '0');
+        document.getElementById('timeDisplay').textContent = `${hours}:${minutes}:${seconds}`;
+        showGreeting(); // Update greeting every second in case the hour changes
+      }
+
+      setInterval(showCurrentTime, 1000);
+      showCurrentTime();
+    </script>
+  </body>
+</html>
