@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Object Example</title>
+  </head>
+  <body>
+    <script>
+      // Define a car object
+      const car = {
+        make: "Toyota",
+        model: "Camry",
+        year: 2020,
+        start: function() {
+          console.log("The car has started.");
+        }
+      };
+
+      // Access object properties
+      console.log(car.make); // Output: Toyota
+      console.log(car["model"]); // Output: Camry
+
+      // Call object method
+      car.start(); // Output: The car has started.
+    </script>
+  </body>
+</html>
